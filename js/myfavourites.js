@@ -141,7 +141,7 @@ var myFavouritesFunctions =
                             return string;
                         }();
                         var li =
-                            "<li data-icon='star-blank'>" +
+                            "<li data-icon='star-normal'>" +
                                 "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.addOrRemoveFavourites(event)'>" +
                                     "<div class='floatleft'>" +
                                         "<h5>" + data[i].AccountCode + "</h5>" +
@@ -210,7 +210,7 @@ var myFavouritesFunctions =
                             return string;
                         }();
                         var li =
-                            "<li id='li_" + data[i].AccountCode + "' data-icon='star-blank'>" +
+                            "<li id='li_" + data[i].AccountCode + "' data-icon='star-normal'>" +
                                 "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.addOrRemoveFavourites(event)'>" +
                                     "<div class='floatleft'>" +
                                         "<h5>" + data[i].AccountCode + "</h5>" +

@@ -2,7 +2,7 @@
 //var URL_API = "http://localhost:3998";
 //var URL_API = "http://175.139.183.94:76/GolfAPI";
 //var SERVER_URL = "http://175.139.183.94:76/TimeReportingApi"; // do not include a "/" at the end of this
-var SERVER_URL = "http://www.ifcaapps.com/timesheet";
+var SERVER_URL = "http://times.ifcaapps.com";
 
 var mainAjaxSetup = function () {
     $.ajaxSetup({

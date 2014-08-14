@@ -10,7 +10,7 @@
         //$.mobile.changePage("menu.html");
     }
 
-    $("#login form").on("submit", function () {
+    $("#login form").on("submit", function (event) {
         event.preventDefault();
         var login = new Authentication($("#username").val(), encodeURIComponent($("#password").val()), SERVER_URL);
         //$.mobile.navigate("menu.html");

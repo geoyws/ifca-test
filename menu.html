@@ -4,11 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <title>IFCA Time Reporting App</title>
-    <script type="text/javascript" src="phonegap.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="phonegap.js"></script>
+    <script type="text/javascript">
+        //Solved the flickering and flashing issue when page change- jqm v1.4.3
+        //Currently set the default page transition to none. This js must place after jquery.js and before jquery mobile .js file
+
+        //To override the transition  , call this line from other function :
+        //$(":mobile-pagecontainer").pagecontainer("change", "yourdestination.html", { transition: "e.g.:flip,slide,none..." });
+        $(document).bind("mobileinit", function () {
+            $.mobile.defaultPageTransition = "none";
+            $.mobile.defaultDialogTransition = "none";
+        }
+      );
+    </script>
     <link rel="stylesheet" href="css/themes/jquery.mobile-1.4.2.min.css" />
     <link rel="stylesheet" href="css/themes/hr360.css">
     <link rel="stylesheet" href="css/themes/TimeReporting.css">
-    <script src="js/jquery.js"></script>
     <script src="js/fastclick.js"></script>
     <script src="js/moment.js"></script>
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
@@ -16,7 +28,6 @@
     <script src="js/mobiscroll.scroller.js"></script>
     <script src="js/mobiscroll.datetime.js"></script>
     <script src="js/mobiscroll.scroller.wp.js"></script>
-    <script src="js/mobiscroll.timereporting.js"></script>
     <link rel="stylesheet" href="css/mobiscroll.icons.css" />
     <link rel="stylesheet" href="css/mobiscroll.scroller.css" />
     <link rel="stylesheet" href="css/mobiscroll.scroller.wp.css" />

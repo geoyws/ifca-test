@@ -67,15 +67,16 @@ var myProfile_ShowDetailsFunctions = {
         var check_capital_letter = password_txt.match(/([A-Z])/) ? 1 : 0;
         var check_numeric = password_txt.match(/([0-9])/) ? 1 : 0;
         var check_symbols = password_txt.match(/(.*[!,%,&,@,#,$,^,*,?,_,~])/) ? 1 : 0;
-
+        var check_all_combination_symbols = password_txt.match(/^[ A-Za-z0-9!,%,&,@,#,$,^,*,?,_,~]*$/) ? 1 : 0;
+        
         if (password_txt.length < 6) {
             error_val = 1;
         }
 
         password_strength = check_small_letter + check_capital_letter + check_numeric + check_symbols;
         
-        if (error_val == 1 || password_strength < 3) {
-            error_msg = "Password must be at least 6 characters, combination of at least 3 different type from number, small letter, capital letter, and symbols";
+        if (error_val == 1 || password_strength < 3 || check_all_combination_symbols == 0) {
+            error_msg = "Password must be at least 6 characters, combination of at least 3 different type from number, small letter, capital letter, and symbols (!,%,&,@,#,$,^,*,?,_,~).";
         } else {
             if (fields == "newPassword" || fields == "confirmPassword") {
                 var confirmPassword_txt = $('#confirmPassword').val();
@@ -137,18 +138,23 @@ var myProfile_ShowDetailsFunctions = {
         var check_capital_letter_oldPassword_txt = oldPassword_txt.match(/([A-Z])/) ? 1 : 0;
         var check_numeric_oldPassword_txt = oldPassword_txt.match(/([0-9])/) ? 1 : 0;
         var check_symbols_oldPassword_txt = oldPassword_txt.match(/(.*[!,%,&,@,#,$,^,*,?,_,~])/) ? 1 : 0;
+        var check_all_combination_symbols_oldPassword_txt = oldPassword_txt.match(/^[ A-Za-z0-9!,%,&,@,#,$,^,*,?,_,~]*$/) ? 1 : 0;
+
         var check_small_letter_newPassword_txt = newPassword_txt.match(/([a-z])/) ? 1 : 0;
         var check_capital_letter_newPassword_txt = newPassword_txt.match(/([A-Z])/) ? 1 : 0;
         var check_numeric_newPassword_txt = newPassword_txt.match(/([0-9])/) ? 1 : 0;
         var check_symbols_newPassword_txt = newPassword_txt.match(/(.*[!,%,&,@,#,$,^,*,?,_,~])/) ? 1 : 0;
+        var check_all_combination_symbols_newPassword_txt = newPassword_txt.match(/^[ A-Za-z0-9!,%,&,@,#,$,^,*,?,_,~]*$/) ? 1 : 0;
+
         var check_small_letter_confirmPassword_txt = confirmPassword_txt.match(/([a-z])/) ? 1 : 0;
         var check_capital_letter_confirmPassword_txt = confirmPassword_txt.match(/([A-Z])/) ? 1 : 0;
         var check_numeric_confirmPassword_txt = confirmPassword_txt.match(/([0-9])/) ? 1 : 0;
         var check_symbols_confirmPassword_txt = confirmPassword_txt.match(/(.*[!,%,&,@,#,$,^,*,?,_,~])/) ? 1 : 0;
-        
+        var check_all_combination_symbols_confirmPassword_txt = confirmPassword_txt.match(/^[ A-Za-z0-9!,%,&,@,#,$,^,*,?,_,~]*$/) ? 1 : 0;
+
         if (oldPassword_txt.length < 6 || newPassword_txt.length < 6 || confirmPassword_txt.length < 6) {
             error_val = 1;
-            error_msg = "Password must be at least 6 characters, combination of at least 3 different type from number, small letter, capital letter, and symbols";
+            error_msg = "Password must be at least 6 characters, combination of at least 3 different type from number, small letter, capital letter, and symbols (!,%,&,@,#,$,^,*,?,_,~).";
         } else if (encodeURIComponent(newPassword_txt) != encodeURIComponent(confirmPassword_txt)) {
             error_val = 1;
             error_msg = "New password and confirm password must be same.";
@@ -158,11 +164,13 @@ var myProfile_ShowDetailsFunctions = {
         error_val_newPassword_Strength = check_small_letter_newPassword_txt + check_capital_letter_newPassword_txt + check_numeric_newPassword_txt + check_symbols_newPassword_txt;
         error_val_confirmPassword_Strength = check_small_letter_confirmPassword_txt + check_capital_letter_confirmPassword_txt + check_numeric_confirmPassword_txt + check_symbols_confirmPassword_txt;
 
-        if (error_val_oldPassword_Strength < 3 || error_val_newPassword_Strength < 3 || error_val_confirmPassword_Strength < 3) {
+        if (error_val_oldPassword_Strength < 3 || error_val_newPassword_Strength < 3 || error_val_confirmPassword_Strength < 3 || 
+            check_all_combination_symbols_oldPassword_txt == 0 || check_all_combination_symbols_newPassword_txt == 0 || check_all_combination_symbols_confirmPassword_txt == 0) {
             error_msg = "Password must be at least 6 characters, combination of at least 3 different type from number, small letter, capital letter, and symbols";
         }
-
-        if (error_val == 0 || error_val_oldPassword_Strength > 2 || error_val_newPassword_Strength > 2 || error_val_confirmPassword_Strength > 2) {
+        
+        if (error_val == 0 && error_val_oldPassword_Strength > 2 && error_val_newPassword_Strength > 2 && error_val_confirmPassword_Strength > 2 &&
+            check_all_combination_symbols_oldPassword_txt == 1 && check_all_combination_symbols_newPassword_txt == 1 && check_all_combination_symbols_confirmPassword_txt == 1) {
             $.ajax({
                 url: SERVER_URL + '/api/Account/ChangePassword',
                 type: 'POST',

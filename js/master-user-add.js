@@ -33,26 +33,27 @@ var masterUserAddFunctions = {
     var createdBy = localStorage.getItem("UserID");
     var password = $("#pass").val();
     var role = $('#role').find(":selected").val();
-  
+
+    var error_val = 0;
+    var password_strength = 0;
+    var check_small_letter = password.match(/([a-z])/) ? 1 : 0;
+    var check_capital_letter = password.match(/([A-Z])/) ? 1 : 0;
+    var check_numeric = password.match(/([0-9])/) ? 1 : 0;
+    var check_symbols = password.match(/(.*[!,%,&,@,#,$,^,*,?,_,~])/) ? 1 : 0;
+    var check_all_combination_symbols = password.match(/^[ A-Za-z0-9!,%,&,@,#,$,^,*,?,_,~]*$/) ? 1 : 0;
+
+    if (password.length < 6) {
+        error_val = 1;
+    }
+
+    password_strength = check_small_letter + check_capital_letter + check_numeric + check_symbols;
+    
     if (userName == "") {
         $("#popup_ErrMsg_MasterUserAdd").popup("open");
         $("#ErroMessage_MasterUserAdd").html("Please insert user name, user name cannot be empty.");
-    } else if (password.length < 6) {
-        setTimeout(function () { $("#popup_ErrMsg_MasterUserAdd").popup("open"); }, 1000);
-        $('#ErroMessage_MasterUserAdd').html('Password must be more that 6 character.');
-        error_val = 1;
-    } else if (!password.match(/([a-zA-Z])/)) {
-        setTimeout(function () { $("#popup_ErrMsg_MasterUserAdd").popup("open"); }, 1000);
-        $('#ErroMessage_MasterUserAdd').html('Password must contains numeric, lower and uppercase characters.');
-        error_val = 1;
-    } else if (!password.match(/([0-9])/)) {
-        setTimeout(function () { $("#popup_ErrMsg_MasterUserAdd").popup("open"); }, 1000);
-        $('#ErroMessage_MasterUserAdd').html('Password must contains numeric, lower and uppercase characters.');
-        error_val = 1;
-    } else if (!password.match(/(.*[!,%,&,@,#,$,^,*,?,_,~].*[!,%,&,@,#,$,^,*,?,_,~])/)) {
-        setTimeout(function () { $("#popup_ErrMsg_MasterUserAdd").popup("open"); }, 1000);
-        $('#ErroMessage_MasterUserAdd').html('Password must contains two special characters.\nMust containts two out of this few special characters: !,%,&,@,#,$,^,*,?,_,~');
-        error_val = 1;
+    } else if (error_val == 1 || password_strength < 3 || check_all_combination_symbols == 0) {
+        $("#popup_ErrMsg_MasterUserAdd").popup("open");
+        $("#ErroMessage_MasterUserAdd").html("Password must be at least 6 characters, combination of at least 3 different type from number, small letter, capital letter, and symbols (!,%,&,@,#,$,^,*,?,_,~).");
     } else if (firstName == "") {
         $("#popup_ErrMsg_MasterUserAdd").popup("open");
         $("#ErroMessage_MasterUserAdd").html("Please insert first name, first name cannot be empty.");

@@ -223,7 +223,15 @@ div.ui-overlay-e {
 
 div[data-role='popup'] {
     min-width: 50vw;
+    max-width: 80vw;
+    max-height: 80vh !important;
+    overflow: auto;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
 }
+
+::-webkit-scrollbar { width: 0 !important }
 
 /*Datepicker set button color*/
 .dwb-s-text {

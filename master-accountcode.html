@@ -1,0 +1,35 @@
+﻿<div data-role="page" id="master-accountcode" data-theme="a">
+    <div data-role="header" data-position="fixed">
+        <a id="btnBack" href="menu.html" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext iconstyle"></a>
+        <h1>Account Code</h1>
+        <a id="btnHome" href="menu.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext iconstyle"></a>
+    </div>
+    <div class="contenttab" data-role="main">
+        <ul data-role="listview" data-filter="true" data-inset="false"></ul>
+    </div>
+    <div data-role="popup" id="popup_sucessfullyDeleteAccountCode" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title" id="P2">Account Code deactivated successfully.</p>
+            <a id="AccountCodeSuccessOK" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+        </div>
+    </div>
+    <div data-role="popup" id="popup_ErrMsg" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title" id="ErroMessage"></p>
+            <a id="closeErrMsg" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+        </div>
+    </div>
+    <div data-role="popup" id="reusableDialog" data-transition-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title"></p>
+            <a data-role="button" data-mini="true" data-transition="none" data-theme="e" data-rel="back">OK</a>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <div class="ui-grid center">
+            <a class="greenbtn" data-role="button" href="master-accountcode-add.html">Add</a>&nbsp;&nbsp;
+            <a class="redbtn" data-role="button" onclick="masterAccountCodeFunctions.deleteAccountCodes()">Deactivate</a>
+        </div>
+    </div>
+    <script src="js/master-accountcode.js"></script>
+</div>

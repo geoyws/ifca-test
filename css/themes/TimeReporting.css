@@ -1,0 +1,272 @@
+* {
+    /*box-sizing: border-box !important;*/
+    text-shadow: none !important;
+}
+
+body {
+    width: 100vw;
+}
+
+div[data-role='page'] {
+    min-height: 100vh;
+}
+
+div.ui-input-search {
+    float: left !important;
+    width: 30%;
+    margin-left: 15px;
+}
+
+.ui-content .ui-input-search {
+    margin-left: 0px;
+}
+
+.floatleft {
+    float: left !important;
+    width: 75%;
+}
+
+.floatright {
+    float: right !important;
+    width: auto;
+}
+
+.data-floatright {
+    float: right !important;
+    padding-top: 0.7em !important;
+    padding-right: 0.5em !important;
+    vertical-align: central !important;
+}
+
+.ifca-data-list-anchor {
+    padding-left: 0.7em !important;
+    padding-top: 0em !important;
+    padding-bottom: 0em !important;
+    padding-right: 0em !important;
+}
+
+.nopadding {
+    padding: 0px !important;
+}
+
+.nomargin {
+    margin: 0px !important;
+}
+
+.showborder {
+    border: solid !important;
+    border-width: 1px !important;
+}
+
+.sub-header-floatright {
+    float: right !important;
+    padding-top: 0.5em !important;
+    padding-right: 0.5em !important;
+}
+
+ul.ui-listview.clearboth {
+    clear: both !important;
+}
+
+label.ui-checkbox-on, label.ui-checkbox-off {
+    border: none !important;
+    background: none !important;
+}
+
+label[for='showAll'] {
+    background: white !important;
+    height: 35px !important;
+    line-height: 35px !important;
+    margin-right: 15px !important;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.vcenter {
+    position: relative !important;
+    /*top: 50vh;*/
+    padding-top: 50%;
+    /*-ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);*/
+}
+
+.absolutecenter {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    margin: auto !important;
+    position: absolute !important;
+}
+
+.resize {
+    max-width: 50%;
+}
+
+/*for Datepicker*/
+.demo {
+    display: none;
+}
+
+li > a > div.floatleft > div:nth-of-type(1) {
+    color: #008dde !important;
+}
+
+li > a > div.floatleft > div:nth-of-type(2) {
+    font-weight: normal !important;
+}
+
+label:not(:empty) {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+/*li {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}*/
+
+#login div.ui-content:not(input) {
+    background-color: transparent !important;
+}
+
+#login div.ui-btn {
+    background: white !important;
+}
+
+#login > .ui-content,
+#splashpage {
+    height: 100vh;
+}
+
+.ui-grid {
+    padding: 0.3em;
+    background: -webkit-linear-gradient(#4e5053, #4b4c50) !important; /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#4e5053, #4b4c50) !important; /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#4e5053, #4b4c50) !important; /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#4e5053, #4b4c50) !important; /* Standard syntax */
+}
+
+.greenbtn {
+    background: -webkit-linear-gradient(#47a12f, #348816) !important; /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#47a12f, #348816) !important; /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#47a12f, #348816) !important; /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#47a12f, #348816) !important; /* Standard syntax */
+    width: 100px;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    color: white !important;
+    border: none;
+    font-weight: normal;
+    border-radius: 0.2em !important;
+}
+
+.redbtn {
+    background: -webkit-linear-gradient(#da3836, #bc2325) !important; /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#da3836, #bc2325) !important; /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#da3836, #bc2325) !important; /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#da3836, #bc2325) !important; /* Standard syntax */
+    width: 100px;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    color: white !important;
+    border: none;
+    font-weight: normal;
+    border-radius: 0.2em !important;
+}
+
+/*.contenttab {
+    padding-top: 45px !important;
+}*/
+
+form.ui-filterable {
+}
+
+div[data-role='page'] {
+    background: #026EAE;
+    /*#039 url(../../images/bg.jpg) repeat !important;*/
+}
+
+.ui-flipswitch {
+    background: white !important;
+    margin-right: 15px !important;
+}
+
+.ui-content .ui-flipswitch {
+    margin-right: 0px !important;
+}
+
+.ui-flipswitch-on, .ui-flipswitch-off {
+    color: black !important;
+}
+
+div.ui-overlay-a,
+div.ui-overlay-b,
+div.ui-overlay-c,
+div.ui-overlay-d,
+div.ui-overlay-e {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.shCheckBoxLabel {
+    color: #FFFFFF !important;
+    font-weight: lighter !important;
+    padding-top: 15em !important;
+}
+
+div[data-role='popup'] {
+    min-width: 50vw;
+}
+
+/*Datepicker set button color*/
+.dwb-s-text {
+    background: -webkit-linear-gradient(#47a12f, #348816) !important;
+    background: -o-linear-gradient(#47a12f, #348816) !important;
+    background: -moz-linear-gradient(#47a12f, #348816) !important;
+    background: linear-gradient(#47a12f, #348816) !important;
+}
+
+ui-icon-star-blank:after {
+    background-color: rgba(0,0,0,0) !important;
+    background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="22px" height="22px" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve"><radialGradient id="SVGID_1_" cx="-4979.3926" cy="2.7656" r="0.4724" gradientTransform="matrix(190.5 0 0 181.673 948674.5 -405.8594)" gradientUnits="userSpaceOnUse"><stop  offset="0" style="stop-color:#FFF59D"/><stop  offset="1" style="stop-color:#F5C117"/></radialGradient><polygon fill="url(#SVGID_1_)" points="69.519,65.447 99.812,11.008 130.543,65.447 190.25,76.861 148.982,121.203 155.129,182.667	99.812,156.764 44.495,182.667 51.519,122.081 10.25,76.861 "/><path fill="#727272" d="M196.249,77.206l-63.188-12.08L100.536,7.512l-32.06,57.615L5.749,77.206l43.676,47.857l-7.434,64.121 l58.544-27.414l58.544,27.414l-6.505-65.051L196.249,77.206z M100.809,155.032l-51.622,24.173l6.555-56.539L17.23,80.467 l55.311-10.651l28.27-50.804l28.679,50.804l55.719,10.651l-38.512,41.38l5.735,57.358L100.809,155.032z"/></svg>') !important;
+}
+
+.ui-icon-star-hl:after {
+    background-color: rgba(0,0,0,0) !important;
+    background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="22px" height="22px" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve"><radialGradient id="SVGID_1_" cx="-4979.3926" cy="2.7656" r="0.4724" gradientTransform="matrix(190.5 0 0 181.673 948674.5 -405.8594)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#FFF59D"/><stop offset="1" style="stop-color:#F5C117"/></radialGradient><polygon fill="url(#SVGID_1_)" points="69.519,65.447 99.812,11.008 130.543,65.447 190.25,76.861 148.982,121.203 155.129,182.667 99.812,156.764 44.495,182.667 51.519,122.081 10.25,76.861 "/><path fill="#727272" d="M196.249,77.206l-63.188-12.08L100.536,7.512l-32.06,57.615L5.749,77.206l43.676,47.857l-7.434,64.121 l58.544-27.414l58.544,27.414l-6.505-65.051L196.249,77.206z M100.809,155.032l-51.622,24.173l6.555-56.539L17.23,80.467 l55.311-10.651l28.27-50.804l28.679,50.804l55.719,10.651l-38.512,41.38l5.735,57.358L100.809,155.032z"/></svg>');
+}
+
+/*.ui-listview .ui-li-icon  {
+    max-height: 30px;
+    max-width: 30px;
+    top: 50%;
+    margin-top: -15px;
+}*/
+
+#login .ui-btn,
+#login .ui-btn:active,
+#login .ui-btn:hover,
+#login .ui-btn:focus {
+    color: black !important;
+    /*background-color: orange !important;*/
+}
+
+#myActivity .clearfix .ui-btn,
+#approval .clearfix .ui-btn,
+#myActivity-add .clearfix .ui-btn {
+    border: none;
+    display: inline;
+}
+
+#myActivity div[data-role='fieldcontain'],
+#approval div[data-role='fieldcontain'],
+#myActivity-add div[data-role='fieldcontain'] {
+    display: none !important;
+}

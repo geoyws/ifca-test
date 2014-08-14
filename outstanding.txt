@@ -1,0 +1,6 @@
+DONE Change the buttons into the green and red ones and the buttons at the top as well
+Popup confirmations and affirmations instead of alerts including the blackscreen popups
+Change the inputs to have pattern and required and maxlength
+equip all datepickers with the proper datepicker and fix the positioning of the datepicker
+Change the searchable filters to flex and to fixed positions and fix the look of the checkbox for check all
+Remove the extraneous data to clean up the system to ready it for use on monday

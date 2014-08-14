@@ -1,0 +1,60 @@
+﻿<div data-role="page" id="master-activity-edit" data-theme="a">
+    <script src="js/master-activity-edit.js"></script>
+    <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <a id="btnBack" href="master-activity.html" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext iconstyle">Power Icon</a>
+        <h1>Edit Activity</h1>
+        <a id="btnHome" href="menu.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext iconstyle">Gear Icon</a>
+    </div>
+    <div data-role="main" class="ui-content">
+        <div class="ui-grid-a">
+
+
+            <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow ttable">
+                <tbody>
+                    <tr>
+                        <th>
+                            <label for="activityCode">Activity Code</label></th>
+                        <td>
+                            <input type="text" id="activityCode" maxlength="10" disabled /></td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="description">Description</label></th>
+                        <td>
+                            <input type="text" id="description" maxlength="100" /></td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="active">Active</label><input type="checkbox" id="active" class="TimeReportingHideCheckbox" /></th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div data-role="popup" id="popup_sucessfullyEditActivity" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title" id="P1">Changes saved successfully.</p>
+            <a id="ActivitySuccessOK" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+        </div>
+    </div>
+    <div data-role="popup" id="popup_ErrMsg_MasterActivityEdit" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title" id="ErroMessage_MasterActivityEdit"></p>
+            <a id="btn_closeErrMsg_MasterActivityEdit" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+        </div>
+    </div>
+    <div data-role="popup" id="reusableDialog" data-transition-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title"></p>
+            <a data-role="button" data-mini="true" data-transition="none" data-theme="e" data-rel="back">OK</a>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <div class="ui-grid center">
+            <a class="greenbtn" data-role="button" onclick="masterActivityEditFunctions.updateActivityCode()">Save</a>&nbsp;&nbsp;
+            <a class="redbtn" data-role="button" href="master-activity.html">Cancel</a>
+        </div>
+    </div>
+</div>

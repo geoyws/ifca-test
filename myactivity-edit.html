@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>IFCA Time Reporting App</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1" />
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery.mobile-1.4.2.js"></script>
+
+    <link href="css/themes/jquery.mobile-1.4.2.min.css" rel="stylesheet" />
+    <link href="css/themes/hr360.css" rel="stylesheet" />
+    <link href="css/themes/TimeReporting.css" rel="stylesheet" />
+
+    <script src="phonegap.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div data-role="page" id="myActivity" data-theme="a">
+
+        <script src="js/myactivity-edit.js"></script>
+        <script src="js/myfavouriteformyactivity.js"></script>
+
+        <div data-role="header">
+            <a id="btnBack" href="myactivity.html" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext iconstyle">Power Icon</a>
+            <h1>My Activity</h1>
+            <a id="btnHome" href="menu.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext iconstyle">Gear Icon</a>
+        </div>
+        <!-- <div class="ui-content" role="main">
+            <div class="ui-field-contain">
+                <label for="activityCode">Activity Code</label>
+             
+                <select id="activityCode"></select>
+            </div>
+            <div class="ui-field-contain">
+                <label for="accountCode">Account Code</label>
+                 <select id="accountCode"></select>
+             
+            </div>
+            <div class="ui-field-contain">
+                <label for="hours">Hours</label>
+                <input type="text" id="hours" />
+            </div>
+            <div class="ui-field-contain">
+                <label for="approvedHours">Approved Hours</label>
+                <input type="text" id="approvedHours" disabled />
+            </div>
+            <div class="ui-field-contain">
+                <label for="remark">Remark</label>
+                <textarea id="remark"></textarea>
+            </div>
+        </div>-->
+        <div data-role="main" class="ui-content">
+            <div class="ui-grid-a">
+                <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow ttable">
+                    <tbody>
+
+                        <tr>
+                            <th>
+                                <label for="activityCode">Activity Code</label></th>
+                            <td>
+                                <select data-native-menu="true" data-mini="true" data-theme="a" id="activityCode"></select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="accountCode">Account Code</label></th>
+                            <td><a style="width: 88%" href="#accCodePopup" data-rel="popup" id="hrefAccountCode" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window">Select account code</a>
+                                <!-- <select data-native-menu="true"  data-mini="true" data-theme="a" id="accountCode"></select>-->
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="hours">Hours</label></th>
+                            <td>
+                                <input type="text" id="hours" />
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="approvedHours">Approved Hours</label></th>
+                            <td>
+                                <input type="text" id="approvedHours" disabled /></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="remark">Remark</label></th>
+                            <td>
+                                <textarea id="remark"></textarea>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div data-role="popup" id="popup_sucessfullyEditMyActivity" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+            <div role="main" class="ui-content">
+                <h3>Success</h3>
+                <p class="ui-title" id="P1">Activity Successfully Saved</p>
+                <a id="MyActivitySuccessOK" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+            </div>
+        </div>
+        <div data-role="popup" id="popup_ErrMsg_EditMyActivity" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+            <div role="main" class="ui-content">
+                <h3>Error</h3>
+                <p class="ui-title" id="ErrorMessage_EditMyActivity"></p>
+                <a id="btn_closeErrMsg_EditMyActivity" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+            </div>
+        </div>
+        <div data-role="popup" id="accCodePopup">
+            <a href="#" data-rel="back" data-role="button" data-icon="delete"
+                data-iconpos="notext" class="ui-btn-right">Close</a>
+            <div data-role="content">
+                <!--<ul data-role="listview" data-inset="true" data-filter="true" id="ActivityMainList"></ul>-->
+                <ul id="myFavouritesList" data-role="listview" data-filter="true" data-inset="true">
+                </ul>
+            </div>
+        </div>
+        <div data-role="popup" id="reusableDialog" data-transition-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+            <div role="main" class="ui-content">
+                <p class="ui-title"></p>
+                <a data-role="button" data-mini="true" data-transition="none" data-theme="e" data-rel="back">OK</a>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="ui-grid center">
+                <a class="greenbtn" data-role="button" onclick="masterActivityEditFunctions.updateActivity()">Save</a>&nbsp;&nbsp;
+                <a class="redbtn" data-role="button" href="myactivity.html">Cancel</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

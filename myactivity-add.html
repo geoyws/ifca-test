@@ -1,0 +1,240 @@
+﻿<div data-role="page" id="myActivity-add" data-theme="a">
+    <script src="js/myactivity-add.js"></script>
+    <script src="js/myfavouriteformyactivity.js"></script>
+    <style type="text/css">
+        .demo {
+            display: none;
+        }
+
+        #datebtn {
+            float: right;
+            /*icon: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkFsbF9nbHlwaHMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTM0MC43NTRweCIgaGVpZ2h0PSIxMzMycHgiIHZpZXdCb3g9IjAgMCAxMzQwLjc1NCAxMzMyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMzQwLjc1NCAxMzMyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xMTUxLjc0NiwxODguNDhoLTYxLjY1MnYxMzcuMDA3SDg3MC44ODNWMTg4LjQ4aC0zOTcuMzJ2MTM3LjAwN0gyNTQuMzUyVjE4OC40OGgtNjEuNjUyDQoJCWMtNzUuMzU1LDAtMTM3LjAwOCw2MS42NTMtMTM3LjAwOCwxMzcuMDA3djgyMi4wNDJjMCw3NS4zNTQsNjEuNjUyLDEzNy4wMDcsMTM3LjAwOCwxMzcuMDA3aDk1OS4wNDcNCgkJYzc1LjM1NSwwLDEzNy4wMDgtNjEuNjUzLDEzNy4wMDgtMTM3LjAwN1YzMjUuNDg4QzEyODguNzU0LDI1MC4xMzQsMTIyNy4xMDIsMTg4LjQ4LDExNTEuNzQ2LDE4OC40OHogTTExNTEuNzQ2LDExNDcuNTNIMTkyLjY5OQ0KCQlWNTk5LjUwMmg5NTkuMDQ3VjExNDcuNTN6IE00MTEuOTEsNTEuNDc0aC05NS45MDZ2MjMyLjkxMmg5NS45MDZWNTEuNDc0eiBNMTAyOC40NDEsNTEuNDc0aC05NS45MDZ2MjMyLjkxMmg5NS45MDZWNTEuNDc0eiIvPg0KPC9nPg0KPC9zdmc+DQo=;*/
+        }
+
+        /*remove the active state of collapsible*/
+        a.ui-collapsible-heading-toggle.ui-btn.ui-btn-icon-left.ui-btn-c.ui-icon-minus.ui-btn-active {
+            background: none!important;
+            border-color: #ddd!important;
+        }
+
+        a.ui-collapsible-heading-toggle.ui-btn.ui-btn-icon-left.ui-btn-c.ui-icon-plus.ui-btn-active {
+            background: none!important;
+            border-color: #ddd!important;
+        }
+
+        .custom-button .ui-btn-inner {
+            padding: 0 !important;
+            float: right!important;
+        }
+
+            .custom-button .ui-btn-inner .ui-btn-text {
+                width: 100% !important;
+                background-image: url('images/icon/arrow-pointdown.png') !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+            }
+    </style>
+    <!--    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>-->
+    <script src="js/mobiscroll.core.js"></script>
+    <script src="js/mobiscroll.scroller.js" type="text/javascript"></script>
+    <script src="js/mobiscroll.datetime.js" type="text/javascript"></script>
+    <script src="js/mobiscroll.scroller.wp.js" type="text/javascript"></script>
+
+    <!--    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />-->
+    <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.wp.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        $(function () {
+            var curr = new Date().getFullYear();
+            var opt = {
+                'date': {
+                    preset: 'date',
+                    //dateOrder: 'ddmmy',
+                    dateOrder: 'ddDmmMyy',
+                    dateFormat: 'dd/mm/yy',
+                    //invalid: { daysOfWeek: [0, 6], daysOfMonth: ['5/1', '12/24', '12/25'] }
+
+                },
+                'datetime': {
+                    preset: 'datetime',
+                    minDate: new Date(2012, 3, 10, 9, 22),
+                    maxDate: new Date(2014, 7, 30, 15, 44),
+                    stepMinute: 5
+                },
+                'time': {
+                    preset: 'time'
+                },
+                'credit': {
+                    preset: 'date',
+                    dateOrder: 'mmyy',
+                    dateFormat: 'mm/yy',
+                    startYear: curr,
+                    endYear: curr + 10,
+                    width: 100
+                },
+                'select': {
+                    preset: 'select'
+                },
+                'select-opt': {
+                    preset: 'select',
+                    group: true,
+                    width: 50
+                }
+            }
+
+            $('.settings select').bind('change', function () {
+                var demo = "date";
+
+                if (!demo.match(/select/i)) {
+                    $('.demo-test-' + demo).val('');
+                }
+
+                $('.demo-test-' + demo).scroller('destroy').scroller($.extend(opt[demo], {
+                    theme: "wp light",
+                    mode: "scroller",
+                    lang: "",
+                    display: "modal",
+                    animate: "pop"
+                }));
+                $('.demo').hide();
+                $('.demo-' + demo).show();
+            });
+
+            $('#demo').trigger('change');
+            $("dwwc").append("Hello");
+        });
+    </script>
+    <div data-role="header">
+        <a id="btnBack" href="myactivity.html" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext iconstyle">Power Icon</a>
+        <h1>Add Activity</h1>
+        <a id="btnHome" href="menu.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext iconstyle">Gear Icon</a>
+
+        <div class="subtitle">
+
+            <div class="clearfix">
+
+                <!--                      <div style="float:left"> <span id="subaction">May 2014</span></div>-->
+                <div style="float: right;">
+                    <div data-role="fieldcontain" class="settings demo demo-date demo-datetime demo-time demo-credit" style="display: none;" id="datebtn">
+                        <div style="display: none;">
+                            <select name="demo" id="demo" style="display: none;">
+                                <option value="date">Date</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <input type="button" data-icon="carat-d" name="test" id="test" class="demo-test-date demo-test-datetime demo-test-time demo-test-credit" />
+
+                </div>
+                <div style="float: right;" id="subaction1">May 2014</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class="ui-content" role="main">
+        <div class="ui-field-contain">
+            <label for="activityDate">Activity Date</label>
+            <input type="date" id="activityDate" />
+        </div>
+        <div class="ui-field-contain">
+            <label for="activityCode">Activity Code</label>
+            <select id="activityCode"></select>
+        </div>
+        <div class="ui-field-contain">
+            <label for="accountCode">Account Code</label>
+            <select id="accountCode"></select>
+        </div>
+        <div class="ui-field-contain">
+            <label for="hours">Hours</label>
+            <input type="text" id="hours" />
+        </div>
+        <div class="ui-field-contain">
+            <label for="remark">Remark</label>
+            <textarea id="remark"></textarea>
+        </div>
+    </div>-->
+    <div data-role="main" class="ui-content">
+        <div class="ui-grid-a">
+            <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow ttable">
+                <tbody>
+                    <!-- <tr>       
+               <th><label for="activityDate">Activity Date</label></th>
+          <td>  <input type="date" id="activityDate" /></td>
+        </tr>-->
+                    <tr>
+                        <th>
+                            <label for="activityCode">Activity Code</label>
+                        </th>
+                        <td>
+                            <select data-native-menu="true" data-mini="true" data-theme="a" id="activityCode"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="accountCode">Account Code</label>
+                        </th>
+                        <td><a style="width: 88%" href="#accCodePopup" data-rel="popup" id="hrefAccountCode" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window">Select account code</a>
+                            <!-- <select data-native-menu="true"  data-mini="true" data-theme="a" id="accountCode"></select>-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="hours">Hours</label></th>
+                        <td>
+                            <input type="text" id="hours" />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="remark">Remark</label></th>
+                        <td>
+                            <textarea id="remark"></textarea>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+    <div data-role="popup" id="popup_sucessfully_AddMyActivity" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title" id="SuccessMessage_AddMyActivity">New Activity added successfully.</p>
+            <a id="MyActivitySuccessOK" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+        </div>
+    </div>
+    <div data-role="popup" id="popup_ErrMsg_AddMyActivity" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title" id="ErroMessage_AddMyActivity"></p>
+            <a id="btn_closeErrMsg_AddMyActivity" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+        </div>
+    </div>
+    <div data-role="popup" id="accCodePopup">
+        <a href="#" data-rel="back" data-role="button" data-icon="delete"
+            data-iconpos="notext" class="ui-btn-right">Close</a>
+        <div data-role="content">
+            <!--<ul data-role="listview" data-inset="true" data-filter="true" id="ActivityMainList"></ul>-->
+            <ul id="myFavouritesList" data-role="listview" data-filter="true" data-inset="true">
+            </ul>
+        </div>
+    </div>
+    <div data-role="popup" id="reusableDialog" data-transition-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title"></p>
+            <a data-role="button" data-mini="true" data-transition="none" data-theme="e" data-rel="back">OK</a>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <div class="ui-grid center">
+            <a class="greenbtn" data-role="button" onclick="myActivityAddFunctions.addActivity()">Save</a>&nbsp;&nbsp;
+            <a class="redbtn" data-role="button" href="myactivity.html" onclick=" myActivityAddFunctions.dispTodayDate()">Cancel</a>
+        </div>
+    </div>
+</div>

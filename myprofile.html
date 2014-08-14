@@ -1,0 +1,110 @@
+﻿<div data-role="page" id="myprofile" data-theme="a">
+    <script src="js/myprofile.js"></script>
+    <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <a id="btnBack" href="menu.html" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext iconstyle">Power Icon</a>
+        <h1>My Profile</h1>
+        <a id="btnHome" href="menu.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext iconstyle">Gear Icon</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <div class="ui-grid-a">
+            <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow ttable">
+                <tbody>
+                    <tr>
+                        <th>
+                            <label for="userID">User ID</label>
+                        </th>
+                        <td>
+                            <input type="text" id="userID" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="oldPassword">Old Password</label>
+                        </th>
+                        <td>
+                            <input type="password" id="oldPassword" maxlength="20" placeholder="*********" />
+                            <span style="color: red" id="span_myprofile_oldPassword"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="newPassword">New Password</label>
+                        </th>
+                        <td>
+                            <input type="password" id="newPassword" maxlength="20" placeholder="*********" />
+                            <span style="color: red" id="span_myprofile_newPassword"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="confirmPassword">Confirm Password</label>
+                        </th>
+                        <td>
+                            <input type="password" id="confirmPassword" maxlength="20" placeholder="*********" />
+                            <span style="color: red" id="span_myprofile_confirmPassword"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="name">Name</label>
+                        </th>
+                        <td>
+                            <input type="text" id="name" value="" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="email">Email</label>
+                        </th>
+                        <td>
+                            <input type="text" id="email" placeholder="" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="phone">Phone Number</label>
+                        </th>
+                        <td>
+                            <input type="text" id="phone" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="role">Role</label>
+                        </th>
+                        <td>
+                            <input type="text" id="role" placeholder="" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="reportTo">Report To</label>
+                        </th>
+                        <td>
+                            <input type="text" id="reportTo" placeholder="" disabled />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div data-role="popup" id="popup_sucessfullyChangePassword" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title" id="P2">Password successfully changed.</p>
+            <a id="btn_sucessfullyChangePassword" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+        </div>
+    </div>
+    <div data-role="popup" id="popup_FailChangePassword" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title" id="ErroMessage_FailChangePassword"></p>
+            <a id="btn_FailChangePassword" data-role="button" data-mini="true" data-transition="none" data-theme="e">OK</a>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <div class="ui-grid center">
+            <a class="greenbtn" data-role="button" id="btn_myProfile_save">Save</a>&nbsp;&nbsp;
+            <a class="redbtn" data-role="button" href="menu.html">Cancel</a>
+        </div>
+    </div>
+</div>

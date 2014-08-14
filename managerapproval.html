@@ -1,0 +1,132 @@
+﻿<div id="approval" data-role="page">
+    
+    <!--    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>-->
+    <script src="js/mobiscroll.core.js"></script>
+    <script src="js/mobiscroll.scroller.js" type="text/javascript"></script>
+    <script src="js/mobiscroll.datetime.js" type="text/javascript"></script>
+    <script src="js/mobiscroll.scroller.wp.js" type="text/javascript"></script>
+
+    <!--    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />-->
+    <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.wp.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="js/activityapproval.js"></script>
+    <script>
+        $(document).bind('mobileinit', function () {
+            $.mobile.activeBtnClass = 'unused';
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var curr = new Date().getFullYear();
+            var opt = {
+                'date': {
+                    preset: 'date',
+                    //dateOrder: 'ddmmy',
+                    dateOrder: 'ddDmmMyy',
+                    dateFormat: 'dd/mm/yy',
+                    //invalid: { daysOfWeek: [0, 6], daysOfMonth: ['5/1', '12/24', '12/25'] }
+
+                },
+                'datetime': {
+                    preset: 'datetime',
+                    minDate: new Date(2012, 3, 10, 9, 22),
+                    maxDate: new Date(2014, 7, 30, 15, 44),
+                    stepMinute: 5
+                },
+                'time': {
+                    preset: 'time'
+                },
+                'credit': {
+                    preset: 'date',
+                    dateOrder: 'mmyy',
+                    dateFormat: 'mm/yy',
+                    startYear: curr,
+                    endYear: curr + 10,
+                    width: 100
+                },
+                'select': {
+                    preset: 'select'
+                },
+                'select-opt': {
+                    preset: 'select',
+                    group: true,
+                    width: 50
+                }
+            }
+
+            $('.settings select').bind('change', function () {
+                var demo = "date";
+
+                if (!demo.match(/select/i)) {
+                    $('.demo-test-' + demo).val('');
+                }
+
+                $('.demo-test-' + demo).scroller('destroy').scroller($.extend(opt[demo], {
+                    theme: "wp light",
+                    mode: "scroller",
+                    lang: "",
+                    display: "modal",
+                    animate: "pop"
+                }));
+                $('.demo').hide();
+                //$('.demo-' + demo).show();
+            });
+            $('#demo').trigger('change');
+            $("dwwc").append("Hello");
+        });
+    </script>
+
+    <div data-role="header" data-position="fixed">
+        <a id="btnBack" href="menu.html" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext iconstyle">Power Icon</a>
+        <h1>Approval</h1>
+        <a id="btnHome" href="menu.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext iconstyle">Gear Icon</a>
+
+        <div class="subtitle">
+            <!--<span class="subaction">May 2014</span><span class="dropdownbtn">
+                <div class="settings">
+                    <div data-role="fieldcontain" style="display: none;">
+                        <label for="demo" style="display: none;">Demo</label>
+                        <select name="demo" id="demo" style="display: none;">
+                            <option value="date">Date</option>
+                        </select>
+                    </div>
+            </span>-->
+
+            <div class="clearfix">
+                <!--            <div style="float:left"> <span id="subaction">May 2014</span></div>-->
+                <div style="float: right;">
+                    <div data-role="fieldcontain" class="settings demo demo-date demo-datetime demo-time demo-credit" style="display: none;" id="datebtn">
+                        <select name="demo" id="demo" style="display: none;">
+                            <option value="date">Date</option>
+                        </select>
+                    </div>
+                    <input type="button" data-icon="carat-d" name="test" id="test" class="demo-test-date demo-test-datetime demo-test-time demo-test-credit" />
+                </div>
+                <div style="float: right;" id="subaction">May 2014</div>
+            </div>
+        </div>
+    </div>
+    <div data-role="content">
+
+        <div id="contentDetail" data-theme="c" class="collapstop"></div>
+        <br />
+    </div>
+    <div data-role="popup" id="reusableDialog" data-transition-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+        <div role="main" class="ui-content">
+            <p class="ui-title"></p>
+            <a data-role="button" data-mini="true" data-transition="none" data-theme="e" data-rel="back">OK</a>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <div class="ui-grid center">
+            <a class="greenbtn" data-role="button" onclick="approveList()">Approve</a>
+        </div>
+    </div>
+</div>
+
+
+

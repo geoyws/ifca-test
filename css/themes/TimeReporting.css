@@ -190,6 +190,7 @@ form.ui-filterable {
 }
 
 div[data-role='page'] {
+    z-index: -1; /* to put the page behind popups (especially when scrolling) */
     background: #026EAE;
     /*#039 url(../../images/bg.jpg) repeat !important;*/
 }

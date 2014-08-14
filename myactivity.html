@@ -6,8 +6,14 @@
         }
 
         #datebtn {
-            /*float: right;*/
+            float: right;
+              width: 100% !important;
+                /*background-image: url('images/icon/arrow-pointdown.png') !important;*/
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+         
         }
+
 
         /*remove the active state of collapsible*/
         a.ui-collapsible-heading-toggle.ui-btn.ui-btn-icon-left.ui-btn-c.ui-icon-minus.ui-btn-active {
@@ -26,10 +32,10 @@
         }
 
             .custom-button .ui-btn-inner .ui-btn-text {
-                /*width: 100% !important;
+                width: 100% !important;
                 background-image: url('images/icon/arrow-pointdown.png') !important;
-                background-repeat: no-repeat !important;*/
-                /*background-position: center !important;*/
+                background-repeat: no-repeat !important;
+                background-position: center !important;
             }
     </style>
     <!--    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -116,29 +122,24 @@
         <h1>My Activity</h1>
         <a id="btnHome" href="menu.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext iconstyle">Gear Icon</a>
 
-        <div class="subtitle">
-            <!--<span class="subaction">May 2014</span><span class="dropdownbtn">
-                <div class="settings">
-                    <div data-role="fieldcontain" style="display: none;">
-                        <label for="demo" style="display: none;">Demo</label>
-                        <select name="demo" id="demo" style="display: none;">
-                            <option value="date">Date</option>
-                        </select>
-                    </div>
-            </span>-->
+         <div class="subtitle">
+
             <div class="clearfix">
+
                 <!--                      <div style="float:left"> <span id="subaction">May 2014</span></div>-->
                 <div style="float: right;">
                     <div data-role="fieldcontain" class="settings demo demo-date demo-datetime demo-time demo-credit" style="display: none;" id="datebtn">
-                        <div style="display: none;"> 
+                        <div style="display: none;">
                             <select name="demo" id="demo" style="display: none;">
                                 <option value="date">Date</option>
                             </select>
                         </div>
                     </div>
+
                     <input type="button" data-icon="carat-d" name="test" id="test" class="demo-test-date demo-test-datetime demo-test-time demo-test-credit" />
+
                 </div>
-                <div style="float: right;" id="subaction">May 2014</div>
+                <div style="float: right;padding: 2% 10% 0 0" id="subaction">May 2014</div>
             </div>
         </div>
     </div>

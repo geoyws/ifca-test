@@ -56,9 +56,13 @@ var masterAccountCodeFunctions =
                         appendHTML += li;
                     };
                     $("ul[data-role='listview']").empty();
-                    $("ul[data-role='listview']").append(appendHTML).listview("refresh");
+                    $("ul[data-role='listview']").html(appendHTML).listview("refresh");
                     $("input[type='checkbox']").checkboxradio();                 
                     mainFunctions.toggleShowAllInactive();
+                    //$("#listview").empty();
+                    //$("#listview").html(appendHTML).listview("refresh");
+                    //$("input[type='checkbox']").checkboxradio();
+                    //mainFunctions.toggleShowAllInactive();
                     //data.empty(); // What is this?
                 }
             });

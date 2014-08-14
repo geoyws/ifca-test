@@ -61,14 +61,14 @@ var myFavouritesFunctions =
                 //alert(id);
             }
             // toggle the yellow star
-            if ($("#" + id).hasClass("ui-icon-star-hl")) {
-                $("#" + id).removeClass("ui-icon-star-hl");
+            if ($("#" + id).hasClass("ui-icon-favstar-hl")) {
+                $("#" + id).removeClass("ui-icon-favstar-hl");
             } else { // if it doesn't have the class, add it
-                $("#" + id).addClass("ui-icon-star-hl");
+                $("#" + id).addClass("ui-icon-favstar-hl");
             }
             //$("#" + id).toggleClass("ui-btn-active");
 
-            if ($("#" + id).hasClass("ui-icon-star-hl")) {
+            if ($("#" + id).hasClass("ui-icon-favstar-hl")) {
                 // do API to add to favourites
                 var addFavAPI = SERVER_URL + "/api/accountcode/addmyfavouritecode"; // needs to be changed after Carso allows for DELETE on the server
                 var userID = localStorage.getItem("UserID");
@@ -88,7 +88,7 @@ var myFavouritesFunctions =
                     },
                     error: function (jqXHR, status, error) {
                         //alert(status + " " + error);
-                        $(this).removeClass("ui-icon-star-hl");
+                        $(this).removeClass("ui-icon-favstar-hl");
                     }
                 });
             } else {
@@ -116,7 +116,7 @@ var myFavouritesFunctions =
                     },
                     error: function (jqXHR, status, error) {
                         //alert(status + " " + error);
-                        $(this).addClass("ui-icon-star-hl");
+                        $(this).addClass("ui-icon-favstar-hl");
                     }
                 });
             }
@@ -141,7 +141,7 @@ var myFavouritesFunctions =
                             return string;
                         }();
                         var li =
-                            "<li data-icon='star-normal'>" +
+                            "<li data-icon='favstar'>" +
                                 "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.addOrRemoveFavourites(event)'>" +
                                     "<div class='floatleft'>" +
                                         "<h5>" + data[i].AccountCode + "</h5>" +
@@ -176,7 +176,7 @@ var myFavouritesFunctions =
                             }),
                             success: function (data) {
                                 for (var i = 0; i < data.length; i++) {
-                                    $("#" + data[i].AccountCode).addClass("ui-icon-star-hl");
+                                    $("#" + data[i].AccountCode).addClass("ui-icon-favstar-hl");
                                 }
                                 $("#myFavouritesList").show();
                             }
@@ -210,7 +210,7 @@ var myFavouritesFunctions =
                             return string;
                         }();
                         var li =
-                            "<li id='li_" + data[i].AccountCode + "' data-icon='star-normal'>" +
+                            "<li id='li_" + data[i].AccountCode + "' data-icon='favstar'>" +
                                 "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.addOrRemoveFavourites(event)'>" +
                                     "<div class='floatleft'>" +
                                         "<h5>" + data[i].AccountCode + "</h5>" +
@@ -227,7 +227,7 @@ var myFavouritesFunctions =
                         $("#myFavouritesList").empty();
                         $("#myFavouritesList").append(appendHTML).listview("refresh");
                         mainFunctions.toggleShowAllInactive();
-                        $("#myFavouritesList li a").addClass("ui-icon-star-hl");
+                        $("#myFavouritesList li a").addClass("ui-icon-favstar-hl");
                         if ($("ul li").length < 1) {
                             $("ul").append("<li class='nofavourites'>You have no favourites.</li>");
                             $("ul").listview("refresh");

@@ -7,9 +7,9 @@ body {
     width: 100vw;
 }
 
-div[data-role='page'] {
+/*div[data-role='page'] {
     min-height: 100vh;
-}
+}*/
 
 div.ui-input-search {
     float: left !important;
@@ -262,7 +262,8 @@ div[data-role='popup'] {
 #approval .clearfix .ui-btn,
 #myActivity-add .clearfix .ui-btn {
     border: none;
-    display: inline;
+    padding-top:12px;
+    padding-bottom:12px;
 }
 
 #myActivity div[data-role='fieldcontain'],
@@ -270,3 +271,21 @@ div[data-role='popup'] {
 #myActivity-add div[data-role='fieldcontain'] {
     display: none !important;
 }
+
+/*form.ui-filterable {
+    top: 42px !important;
+    position: fixed !important;
+    width: 100% !important;
+    z-index: 1 !important; 
+    background: #026EAE;
+}
+
+label {
+    z-index: 0 !important;
+}
+
+ul[data-filter='true'] {
+    margin-top: 0px !important;
+    top: 54px;
+    position: relative;
+}*/

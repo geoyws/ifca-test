@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
-    id          = "com.Ifca.TimeReporting"
+    id          = "com.Ifca.TimeSheet"
     versionCode = "10"
     version     = "1.0" >
 
@@ -13,10 +13,10 @@
 
   <!-- versionCode is optional and Android only -->
 
-  <name>Time Reporting</name>
+  <name>Time Sheet</name>
 
   <description>
-    An example for phonegap build docs.
+    By the IFCA Framework team led by Carso Leong.
   </description>
 
   <!-- Android -->

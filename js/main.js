@@ -45,7 +45,6 @@ function display_name_format(firstname, lastname) {
 }
 
 function showLoading() {
-    
     setTimeout(function () {
         $.mobile.loading("show", {
             text: "Loading...",
@@ -83,6 +82,10 @@ $(document).on({
         }
     }
 });
+
+//$("input[data-type='search']").on("click", function () {
+//    $.mobile.silentScroll(0);
+//});
 
 //$.ajaxSetup({
 //    beforeSend: function () {

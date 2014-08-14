@@ -48,7 +48,7 @@ var myFavouritesFunctions =
 
             if ($("#" + id).hasClass("ui-btn-active")) {
                 // do API to add to favourites
-                var addFavAPI = "http://175.139.183.94:76/TimeReportingApi/api/accountcode/addmyfavouritecode"; // needs to be changed after Carso allows for DELETE on the server
+                var addFavAPI = SERVER_URL+"/api/accountcode/addmyfavouritecode"; // needs to be changed after Carso allows for DELETE on the server
                 var userID = localStorage.getItem("UserID");
 
                 $.ajax({
@@ -76,7 +76,7 @@ var myFavouritesFunctions =
                 });
             } else {
                 // do API to remove from favourites
-                var delFavAPI = "http://175.139.183.94:76/TimeReportingApi/api/accountcode/deletemyfavouritecode/"; // needs to be changed after Carso allows for DELETE on the server
+                var delFavAPI = SERVER_URL+"/api/accountcode/deletemyfavouritecode/"; // needs to be changed after Carso allows for DELETE on the server
                 var userID = localStorage.getItem("UserID");
 
                 $.ajax({
@@ -106,7 +106,7 @@ var myFavouritesFunctions =
             
         },
         generateAddListView: function () {
-            var getAccountCodeAPI = "http://175.139.183.94:76/TimeReportingApi/api/accountcode";
+            var getAccountCodeAPI = SERVER_URL+"/api/accountcode";
 
             $.ajax({
                 url: getAccountCodeAPI,
@@ -153,7 +153,7 @@ var myFavouritesFunctions =
                         $("#myFavouritesList").css("overflow-x", "hidden");
                         mainFunctions.toggleShowAllInactive();
                         // Do another AJAX call to get the favourite codes to highlight those that are already favourited
-                        var getFavAPI = "http://175.139.183.94:76/TimeReportingApi/api/accountcode/myfavouritecode";
+                        var getFavAPI = SERVER_URL+"/api/accountcode/myfavouritecode";
                         var userID = localStorage.getItem("UserID");
 
                         $.ajax({
@@ -186,7 +186,7 @@ var myFavouritesFunctions =
             });
         },
         generateListView: function () {
-            var getFavAPI = "http://175.139.183.94:76/TimeReportingApi/api/accountcode/myfavouritecode";
+            var getFavAPI = SERVER_URL+"/api/accountcode/myfavouritecode";
             var userID = localStorage.getItem("UserID");
 
             $.ajax({

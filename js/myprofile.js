@@ -26,6 +26,34 @@ $(document).one('pagecontainerbeforeshow', function (event, data) {
         myProfile_ShowDetailsFunctions.myProfile_passwordErrorChecking($('#confirmPassword'), "confirmPassword");
     });
 
+    $.ajaxSetup({
+        error: function (jqXHR, exception) {
+            if (jqXHR.status === 0) {
+                error = "Unable to connect to server. Are you connected to the internet?";
+            } else if (jqXHR.status == 404) {
+                error = "Requested page not found. [404]";
+            } else if (jqXHR.status == 401) {
+                error = "401 Unauthorized";
+            } else if (jqXHR.status == 400) {
+                var error_msg = jqXHR.responseText;
+                var myObject = eval('(' + error_msg + ')');
+                error = myObject['ModelState']['msg'];
+            } else if (jqXHR.status == 500) {
+                error = "Internal Server Error [500].";
+            } else if (exception === 'parsererror') {
+                error = "Requested JSON parse failed.";
+            } else if (exception === 'timeout') {
+                error = "Time out error.";
+            } else if (exception === 'abort') {
+                error = "Ajax request aborted.";
+            } else {
+                error = jqXHR.responseText;
+            }
+
+            $("#ErroMessage_FailChangePassword").html(error);
+            $("#popup_FailChangePassword").popup("reposition", "positionTo: window").popup("open");
+        }
+    });
 });
 
 

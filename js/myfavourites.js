@@ -54,71 +54,78 @@ var myFavouritesFunctions =
             $("ul.ui-listview").addClass("clearboth");
             $("select#flipswitch").flipswitch();
         },
-        addOrRemoveFavourites: function (event) {
+        onClick: function (event) {
             var id = event.target.id;
+            // workaround in case people click on another element deeper within the DOM
+            // just make sure that there are no IDs within the <a> tag
             if (!id) {
                 id = $(event.target).closest("a").attr("id");
                 //alert(id);
             }
-            // toggle the yellow star
-            if ($("#" + id).hasClass("ui-icon-favstar-hl")) {
-                $("#" + id).removeClass("ui-icon-favstar-hl");
-            } else { // if it doesn't have the class, add it
-                $("#" + id).addClass("ui-icon-favstar-hl");
-            }
-            //$("#" + id).toggleClass("ui-btn-active");
+            if ($.mobile.pagecontainer("getActivePage") == "myFavourites") {
+                // toggle the yellow star
+                if ($("#" + id).hasClass("ui-icon-favstar-hl")) {
+                    $("#" + id).removeClass("ui-icon-favstar-hl");
+                } else { // if it doesn't have the class, add it
+                    $("#" + id).addClass("ui-icon-favstar-hl");
+                }
+                //$("#" + id).toggleClass("ui-btn-active");
 
-            if ($("#" + id).hasClass("ui-icon-favstar-hl")) {
-                // do API to add to favourites
-                var addFavAPI = SERVER_URL + "/api/accountcode/addmyfavouritecode"; // needs to be changed after Carso allows for DELETE on the server
-                var userID = localStorage.getItem("UserID");
+                if ($("#" + id).hasClass("ui-icon-favstar-hl")) {
+                    // do API to add to favourites
+                    var addFavAPI = SERVER_URL + "/api/accountcode/addmyfavouritecode"; // needs to be changed after Carso allows for DELETE on the server
+                    var userID = localStorage.getItem("UserID");
 
-                $.ajax({
-                    url: addFavAPI,
-                    type: "POST", // needs to be changed after Carso allows for DELETE on the server
-                    crossDomain: true,
-                    async: false,
-                    contentType: "application/json",
-                    dataType: "json",
-                    data: JSON.stringify({
-                        "AccountCode": id,
-                        "UserDetailID": userID
-                    }),
-                    success: function () {
-                    },
-                    error: function (jqXHR, status, error) {
-                        //alert(status + " " + error);
-                        $(this).removeClass("ui-icon-favstar-hl");
-                    }
-                });
-            } else {
-                // do API to remove from favourites
-                var delFavAPI = SERVER_URL + "/api/accountcode/deletemyfavouritecode/"; // needs to be changed after Carso allows for DELETE on the server
-                var userID = localStorage.getItem("UserID");
+                    $.ajax({
+                        url: addFavAPI,
+                        type: "POST", // needs to be changed after Carso allows for DELETE on the server
+                        crossDomain: true,
+                        async: false,
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: JSON.stringify({
+                            "AccountCode": id,
+                            "UserDetailID": userID
+                        }),
+                        success: function () {
+                        },
+                        error: function (jqXHR, status, error) {
+                            //alert(status + " " + error);
+                            $(this).removeClass("ui-icon-favstar-hl");
+                        }
+                    });
+                } else {
+                    // do API to remove from favourites
+                    var delFavAPI = SERVER_URL + "/api/accountcode/deletemyfavouritecode/"; // needs to be changed after Carso allows for DELETE on the server
+                    var userID = localStorage.getItem("UserID");
 
-                $.ajax({
-                    url: delFavAPI,
-                    type: "POST", // needs to be changed after Carso allows for DELETE on the server
-                    crossDomain: true,
-                    async: false,
-                    contentType: "application/json",
-                    data: JSON.stringify({
-                        "AccountCode": id,
-                        "UserDetailID": userID
-                    }),
-                    success: function () {
-                        //$("#li_" + id).remove();
-                        $("#myFavouritesList").listview("refresh");
-                        //if ($("ul li").length < 1) {
-                        //    $("ul").append("<li class='nofavourites'>You have no favourites.</li>");
-                        //    $("ul").listview("refresh");
-                        //}
-                    },
-                    error: function (jqXHR, status, error) {
-                        //alert(status + " " + error);
-                        $(this).addClass("ui-icon-favstar-hl");
-                    }
-                });
+                    $.ajax({
+                        url: delFavAPI,
+                        type: "POST", // needs to be changed after Carso allows for DELETE on the server
+                        crossDomain: true,
+                        async: false,
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            "AccountCode": id,
+                            "UserDetailID": userID
+                        }),
+                        success: function () {
+                            //$("#li_" + id).remove();
+                            $("#myFavouritesList").listview("refresh");
+                            //if ($("ul li").length < 1) {
+                            //    $("ul").append("<li class='nofavourites'>You have no favourites.</li>");
+                            //    $("ul").listview("refresh");
+                            //}
+                        },
+                        error: function (jqXHR, status, error) {
+                            //alert(status + " " + error);
+                            $(this).addClass("ui-icon-favstar-hl");
+                        }
+                    });
+                }
+            } else if ($.mobile.pagecontainer("getActivePage") == "myActivity-add" || "myActivity-edit") {
+                $("#hrefAccountCode").text(id);
+                $("#accCodePopup").popup("close");
             }
         },
         generateAddListView: function () {
@@ -142,13 +149,13 @@ var myFavouritesFunctions =
                         }();
                         var li =
                             "<li data-icon='favstar'>" +
-                                "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.addOrRemoveFavourites(event)'>" +
+                                "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.onClick(event)'>" +
                                     "<div class='floatleft'>" +
                                         "<h5>" + data[i].AccountCode + "</h5>" +
                                         "<p>" + data[i].Description + "</p>" +
                                     "</div>" +
                                     "<div class='floatright'>" +
-                                        //"<a class='ui-btn ui-shadow ui-corner-all ui-icon ui-icon-star ui-btn-icon-notext' onclick='myFavouritesFunctions.addOrRemoveFavourites(event)'></a>" +
+                                        //"<a class='ui-btn ui-shadow ui-corner-all ui-icon ui-icon-star ui-btn-icon-notext' onclick='myFavouritesFunctions.onClick(event)'></a>" +
                                     "</div>" +
                                     //"<div style='clear:both;'></div>" +
                                 "</a>" +
@@ -211,13 +218,13 @@ var myFavouritesFunctions =
                         }();
                         var li =
                             "<li id='li_" + data[i].AccountCode + "' data-icon='favstar'>" +
-                                "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.addOrRemoveFavourites(event)'>" +
+                                "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.onClick(event)'>" +
                                     "<div class='floatleft'>" +
                                         "<h5>" + data[i].AccountCode + "</h5>" +
                                         "<p>" + data[i].Description + "</p>" +
                                     "</div>" +
                                     "<div class='floatright'>" +
-                                        //"<a class='ui-btn ui-shadow ui-corner-all ui-icon ui-icon-star ui-btn-icon-notext' onclick='myFavouritesFunctions.addOrRemoveFavourites(event)'></a>" +
+                                        //"<a class='ui-btn ui-shadow ui-corner-all ui-icon ui-icon-star ui-btn-icon-notext' onclick='myFavouritesFunctions.onClick(event)'></a>" +
                                     "</div>" +
                                 "</a>" +
                             "</li>";
@@ -247,7 +254,7 @@ var myFavouritesFunctions =
 //$("#popupAddFav").popup({
 //    afteropen: function () {
 //        myFavouritesFunctions.generateAddListView();
-//        // $("#popupAddFav a").on("click", myFavouritesFunctions.addOrRemoveFavourites(event));
+//        // $("#popupAddFav a").on("click", myFavouritesFunctions.onClick(event));
 //    }
 //});
 //$("#popupAddFav").popup({ afterclose: function () { myFavouritesFunctions.generateListView(); } });

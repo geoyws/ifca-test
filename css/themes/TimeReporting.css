@@ -222,18 +222,20 @@ div.ui-overlay-e {
     padding-top: 15em !important;
 }
 
-/*div[data-role='popup'] {
+div[data-role='popup'] {
     z-index: 2;
-    min-width: 50vw;
-    max-width: 80vw;
+    min-width: 60vw !important;
+    max-width: 80vw !important;
     max-height: 50vh !important;
     overflow: auto;
     overflow-x: hidden;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
-}*/
+    position: fixed !important;
+    transform: translate(-50%,-50%) !important; 
+}
 
-/*::-webkit-scrollbar { width: 0 !important }*/
+::-webkit-scrollbar { width: 0 !important }
 
 /*Datepicker set button color*/
 .dwb-s-text {

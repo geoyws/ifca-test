@@ -31,10 +31,10 @@ var myActivityAddFunctions = {
             async: true,
             success: function (data) {
                 // Confirmational response from server
-                if (data != "") {
+                var appendActivityCodes;
+                if (data) {
                     for (var i = 0; i < data.length; i++) {
-                        var appendActivityCodes =
-                            "<option value='" + data[i].ActivityCode + "'>" + data[i].ActivityCode + " " + data[i].Description + "</option>";
+                        appendActivityCodes += "<option value='" + data[i].ActivityCode + "'>" + data[i].ActivityCode + " " + data[i].Description + "</option>";
                         cacheSelect.html(appendActivityCodes);
                     }
                     cacheSelect.selectmenu("refresh");

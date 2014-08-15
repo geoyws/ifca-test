@@ -84,7 +84,7 @@ $(document).on({
 });
 
 //$("input[data-type='search']").on("click", function () {
-//    $.mobile.silentScroll(0);
+//    $.mobile.scrollTop(0);
 //});
 
 //$.ajaxSetup({

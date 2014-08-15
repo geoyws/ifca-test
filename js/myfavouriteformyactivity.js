@@ -129,7 +129,7 @@ var myFavouritesFunctions =
                             return string;
                         }();
                         var li =
-                            "<li data-icon='star'>" +
+                            "<li data-icon='favstar'>" +
                                 "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.addOrRemoveFavourites(event)'>" +
                                     "<div class='floatleft'>" +
                                         "<span>" + data[i].AccountCode + "</span><br />" +
@@ -231,7 +231,7 @@ var myFavouritesFunctions =
                                 return string;
                             }();
                             var li =
-                                "<li data-icon='star'>" +
+                                "<li data-icon='favstar'>" +
                                     "<a id='" + data[i].AccountCode + "' onclick='myFavouritesFunctions.selectFavourites(this.id)'>" +
                                         "<div class='floatleft'>" +
                                             "<span>" + data[i].AccountCode + "</span><br />" +

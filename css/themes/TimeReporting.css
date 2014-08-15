@@ -222,8 +222,8 @@ div.ui-overlay-e {
     padding-top: 15em !important;
 }
 
-div[data-role='popup'] {
-    z-index: 2; /* scrolling purposes */
+/*div[data-role='popup'] {
+    z-index: 2;
     min-width: 50vw;
     max-width: 80vw;
     max-height: 50vh !important;
@@ -231,9 +231,9 @@ div[data-role='popup'] {
     overflow-x: hidden;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
-}
+}*/
 
-::-webkit-scrollbar { width: 0 !important }
+/*::-webkit-scrollbar { width: 0 !important }*/
 
 /*Datepicker set button color*/
 .dwb-s-text {

@@ -217,7 +217,7 @@ function callAjaxApprove(someurl, approveList, sometype) {
         type: sometype,
         url: someurl,
         data: { '': approveList },
-        async: false,
+        async: true,
         dataType: "json",
         success: function () { },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -284,7 +284,7 @@ function callAjax(someurl, somedata, sometype) {
         type: sometype,
         url: someurl,
         data: somedata,
-        async: false,
+        async: true,
         dataType: "json",
         success: function () { },
         error: function (xhr, ajaxOptions, thrownError) {

@@ -37,13 +37,30 @@ var mainAjaxSetup = function () {
 // Initialize AJAX Setup
 mainAjaxSetup();
 
-//var defaultDate_Test = "";
+// Stop AJAX requests upon page change
+$(document).one("pagecontainerbeforechange", function () {
+    $.xhrPool.abortAll();
+});
 
-function display_name_format(firstname, lastname) {
-    var display_full_name = firstname + ' ' + lastname;
-    display_full_name = display_full_name.trim();
-    return display_full_name;
-}
+$.xhrPool = [];
+$.xhrPool.abortAll = function () {
+    $(this).each(function (idx, jqXHR) {
+        jqXHR.abort();
+    });
+    $.xhrPool.length = 0;
+};
+
+$.ajaxSetup({
+    beforeSend: function (jqXHR) {
+        $.xhrPool.push(jqXHR);
+    },
+    complete: function (jqXHR) {
+        var index = $.xhrPool.indexOf(jqXHR);
+        if (index > -1) {
+            $.xhrPool.splice(index, 1);
+        }
+    }
+});
 
 function showLoading() {
     setTimeout(function () {
@@ -83,6 +100,15 @@ $(document).on({
         }
     }
 });
+
+//var defaultDate_Test = "";
+
+function display_name_format(firstname, lastname) {
+    var display_full_name = firstname + ' ' + lastname;
+
+    display_full_name = display_full_name.trim();
+    return display_full_name;
+}
 
 //$("input[data-type='search']").on("click", function () {
 //    $.mobile.scrollTop(0);

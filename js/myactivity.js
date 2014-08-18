@@ -93,10 +93,12 @@ var myActivityFunctions =
                 if ($(this).is(':checked')) {
                     regenerate_list = 1;
                     var checkboxID = $(this).attr("id");
-                    var uniqueID = checkboxID.split("checkbox-")[1];
-                    var activityMainID = uniqueID.split("-")[0];
-                    var activityCode = uniqueID.split("-")[1].replace(/_+/g, " "); // in case there is spacing
-                    var accountCode = uniqueID.split("-")[2];
+                   
+                    var uniqueID = checkboxID.split("checkbox~^")[1];
+                    var activityMainID = uniqueID.split(/\~\^/)[0];
+                    var activityCode = uniqueID.split(/\~\^/)[1].replace(/_+/g, " "); // in case there is spacing
+                    var accountCode = uniqueID.split(/\~\^/)[2];
+                  
                     $.ajax({
                         url: DELETEAPIURL,
                         type: "POST",
@@ -184,8 +186,8 @@ var myActivityFunctions =
                                     return data[i].ApprovedHours;
                                 }
                             }();
-                            var uniqueID = data[i].ActivityMainID + "-" + data[i].ActivityCode.replace(/ +/g, "_") + "-" + data[i].AccountCode + "-" + date.replace(/-+/g, "");
-
+                            var uniqueID = data[i].ActivityMainID + "~^" + data[i].ActivityCode.replace(/ +/g, "_") + "~^" + data[i].AccountCode + "~^" + date.replace(/-+/g, "");
+                        
                             var li =
                                 "<li data-icon='false' id='li_" + uniqueID + "'>" +
                                     "<a class='ifca-data-list-anchor' href='myactivity-edit.html?id=" + uniqueID + "'>" +
@@ -194,7 +196,7 @@ var myActivityFunctions =
                                             "<p>" + data[i].AccountCode + "</p>" +
                                         "</div>" +
                                         "<div class='data-floatright'>" +
-                                            "<label data-conpos='right'><input type='checkbox' id='checkbox-" + uniqueID + "' /></label>" +
+                                            "<label data-conpos='right'><input type='checkbox' id='checkbox~^" + uniqueID + "' /></label>" +
                                             //"<label for='checkbox-" + uniqueID + "'" + "data-iconpos='right'>" + approvedHours + "hrs/" + data[i].Hours + "hrs" + "</label>" +
                                         "</div>" +
                                     "</a>" +

@@ -1,0 +1,12 @@
+﻿CACHE MANIFEST
+# 2014-08-15 v1.0.2
+/js/jquery.mobile-1.4.2.min.map
+/images/icon/fav-code.png
+/images/icon/my-profile.png
+/js/jquery-2.1.1.js
+
+NETWORK:
+login.html
+
+FALLBACK:
+/html/ /offline.html

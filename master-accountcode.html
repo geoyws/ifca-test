@@ -1,11 +1,11 @@
-﻿<div data-role="page" id="master-accountcode" data-theme="a">
-    <div data-role="header" data-position="fixed">
+﻿<div data-role="page" id="master-accountcode" data-theme="a"> 
+    <div data-role="header" data-position="fixed" class="ui-header">
         <a id="btnBack" href="menu.html" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext iconstyle"></a>
         <h1>Account Code</h1>
         <a id="btnHome" href="menu.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext iconstyle"></a>
     </div>
     <div class="contenttab" data-role="main">
-        <ul data-role="listview" data-filter="true" data-inset="false"></ul>
+        <ul id="master-accountcode-listview" data-role="listview" data-filter="true" data-inset="false"></ul>
     </div>
     <div data-role="popup" id="popup_sucessfullyDeleteAccountCode" data-position-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
         <div role="main" class="ui-content">
@@ -25,7 +25,7 @@
             <a data-role="button" data-mini="true" data-transition="none" data-theme="e" data-rel="back">OK</a>
         </div>
     </div>
-    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" >
         <div class="ui-grid center">
             <a class="greenbtn" data-role="button" href="master-accountcode-add.html">Add</a>&nbsp;&nbsp;
             <a class="redbtn" data-role="button" onclick="masterAccountCodeFunctions.deleteAccountCodes()">Deactivate</a>

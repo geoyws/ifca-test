@@ -11,15 +11,15 @@ var masterActivityEditFunctions = {
     renderDetails: function () {
         var url = window.location.href;
         //var activityMainID = Number(url.split("=")[1].split("-")[0]);
-        var activityMainID = url.split("=")[1].split("-")[0];
-        var activityCode = url.split("=")[1].split("-")[1].replace(/_+/g," "); // in case there is spacing
-        var accountCode = url.split("=")[1].split("-")[2];
+        var activityMainID = url.split("=")[1].split(/\~\^/)[0];
+        var activityCode = url.split("=")[1].split(/\~\^/)[1].replace(/_+/g, " "); // in case there is spacing
+        var accountCode = url.split("=")[1].split(/\~\^/)[2];
 
         localStorage.activityCode = activityCode;
         localStorage.accountCode = accountCode;
         
 
-        var date = url.split("=")[1].split("-")[3];
+        var date = url.split("=")[1].split(/\~\^/)[3];
         var formattedDate = date.substring(0, 4) + "-" + date.substring(4, 6) + "-" + date.substring(6);
         var userID = localStorage.getItem("UserID");
 
@@ -175,7 +175,7 @@ var masterActivityEditFunctions = {
         var apiURL = SERVER_URL + "/api/Activity/UpdateMyActivity";
 
         var url = window.location.href;
-        var activityMainID = url.split("=")[1].split("-")[0];
+        var activityMainID = url.split("=")[1].split(/\~\^/)[0];
         var activityCode = $("#activityCode").val();
         var accountCode = $("#hrefAccountCode").text();
         var hours = $("#hours").val();

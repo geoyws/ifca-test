@@ -6,6 +6,7 @@ var SERVER_URL = "http://times.ifcaapps.com";
 
 var mainAjaxSetup = function () {
     $.ajaxSetup({
+        async: true,
         error: function (jqXHR, exception, err) {
             if (jqXHR.status === 0) {
                 error = 'Not connected.\n Verify Network.';

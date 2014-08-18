@@ -181,6 +181,9 @@ var myProfile_ShowDetailsFunctions = {
                 },
                 success: function () {
                     setTimeout(function () { $("#popup_sucessfullyChangePassword").popup("open"); }, 1000);
+                    $('#oldPassword').val("");
+                    $('#newPassword').val("");
+                    $('#confirmPassword').val("");
                 }
             });
         } else {

@@ -163,8 +163,10 @@ var myFavouritesFunctions =
                         appendHTML += li;
                     };
 
-                    if ($("#flipswitch").val() == "all") { // Check to see if the flipswitch is in the right position when the async is done. People might be flipping the switch really fast.
-                        $("#myFavouritesList").empty().hide(); // keep hidden until 2nd async is done and the list is ready for display.
+                    if ($("#flipswitch").val() == "all") {
+                        // Check to see if the flipswitch is in the right position when the async is done. People might be flipping the switch really fast.
+                        // If the flipswitch is in the right place, append the HTML, otherwise, don't do anything.
+                        $("#myFavouritesList").empty();
                         $("#myFavouritesList").append(appendHTML).listview("refresh");
                         mainFunctions.toggleShowAllInactive(); // Hide all inactive accounts
                         // Do another AJAX call to get the favourite codes to highlight those that are already favourited

@@ -240,8 +240,9 @@ div.ui-overlay-e {
 
 #myActivity-add #accCodePopup,
 #myActivity-edit #accCodePopup {
-    min-height: 100vh !important;
-    min-width: 100vw !important;
+    z-index: 3;
+    min-height: 50vh !important;
+    min-width: 50vw !important;
 }
 
 ::-webkit-scrollbar {

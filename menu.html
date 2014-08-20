@@ -25,19 +25,30 @@
     <script src="js/moment.js"></script>
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script src="js/mobiscroll.core.js"></script>
-    <script src="js/mobiscroll.scroller.js"></script>
-    <script src="js/mobiscroll.datetime.js"></script>
-    <script src="js/mobiscroll.scroller.wp.js"></script>
-    <link rel="stylesheet" href="css/mobiscroll.icons.css" />
-    <link rel="stylesheet" href="css/mobiscroll.scroller.css" />
-    <link rel="stylesheet" href="css/mobiscroll.scroller.wp.css" />
-    <link rel="stylesheet" href="css/mobiscroll.animation.css" />
+    <script src="js/mobiscroll.widget.js" type="text/javascript"></script>
+    <script src="js/mobiscroll.scroller.js" type="text/javascript"></script>
+    <script src="js/mobiscroll.datetime.js" type="text/javascript"></script>
+    <script src="js/mobiscroll.widget.wp.js" type="text/javascript"></script>
+
+    <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.widget.wp.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.wp.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.customization.css" rel="stylesheet" type="text/css" />
+    
     <script type="application/javascript">
         window.addEventListener('load', function () {
             FastClick.attach(document.body);
         }, false);
     </script>
     <script src="js/main.js"></script>
+    <style type="text/css" >
+        .border {
+            border: 0.5em solid black;
+        }
+    </style>
 </head>
 <body>
     <div id="homepage" data-role="page" data-theme="a">
@@ -48,9 +59,7 @@
             <h1>Home page</h1>
             <div class="subtitle">Welcome!</div>
         </div>
-        <div data-role="main" class="ui-content">
-            <div id="modulesContainer" class="ui-grid-b textcenter"></div>
-        </div>
+        <div id="modulesContainer" class="mainmenu"></div>
         <div data-role="popup" id="reusableDialog" data-transition-to="window" data-overlay-theme="b" data-theme="a" data-dismissible="false">
             <div role="main" class="ui-content">
                 <p class="ui-title"></p>

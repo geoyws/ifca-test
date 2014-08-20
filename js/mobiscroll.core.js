@@ -1,12 +1,12 @@
 /*!
- * Mobiscroll v2.11.1
+ * Mobiscroll v2.12.0
  * http://mobiscroll.com
  *
  * Copyright 2010-2014, Acid Media
  * Licensed under the MIT license.
  *
  */
-(function ($) {
+(function ($, undefined) {
 
     function testProps(props) {
         var i;
@@ -33,6 +33,10 @@
     function getCoord(e, c) {
         var ev = e.originalEvent || e;
         return ev.changedTouches ? ev.changedTouches[0]['page' + c] : e['page' + c];
+    }
+
+    function constrain(val, min, max) {
+        return Math.max(min, Math.min(val, max));
     }
 
     function init(that, options, args) {
@@ -96,15 +100,21 @@
     };
 
     $.mobiscroll = $.mobiscroll || {
+        version: '2.12.0',
         util: {
             prefix: prefix,
             jsPrefix: pr,
             has3d: has3d,
             hasFlex: hasFlex,
             getCoord: getCoord,
-            testTouch: testTouch
+            testTouch: testTouch,
+            constrain: constrain
         },
-        presets: {},
+        tapped: false,
+        presets: {
+            scroller: {},
+            numpad: {}
+        },
         themes: {
             listview: {}
         },
@@ -112,14 +122,17 @@
         instances: instances,
         classes: {},
         components: {},
-        defaults: {},
+        defaults: {
+            theme: 'mobiscroll',
+            context: 'body'
+        },
         userdef: {},
         setDefaults: function (o) {
             extend(this.userdef, o);
         },
-        presetShort: function (name, c) {
+        presetShort: function (name, c, p) {
             this.components[name] = function (s) {
-                return init(this, extend(s, { component: c, preset: name }), arguments);
+                return init(this, extend(s, { component: c, preset: p === false ? undefined : name }), arguments);
             };
         }
     };

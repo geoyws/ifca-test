@@ -238,10 +238,10 @@ div[data-role='popup'] {
     transform: translate(-50%,-50%) !important;*/
 }
 
-#myActivity-add div[data-role='popup'],
+/*#myActivity-add div[data-role='popup'],
 #myActivity-edit div[data-role='popup'] {
     min-height: 50vw !important;
-}
+}*/
 
 ::-webkit-scrollbar {
     width: 0 !important;

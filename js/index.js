@@ -9,7 +9,7 @@ $(document).one("pagecontainerbeforeshow", function () {
         //$.mobile.navigate("#login");
         //$.mobile.changePage("login.html");
     }
-    $("#splashpage").on("click", function () {
-        $.mobile.pageContainer.pagecontainer('change', 'login.html');
-    });
+    //$("#splashpage").on("click", function () {
+    //    $.mobile.pageContainer.pagecontainer('change', 'login.html');
+    //});
 });

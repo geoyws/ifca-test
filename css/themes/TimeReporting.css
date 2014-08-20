@@ -221,8 +221,8 @@ div.ui-overlay-e {
     padding-top: 15em !important;
 }
 
-div[data-role='popup'] {
-    /*z-index: 2;
+/*div[data-role='popup'] {
+    z-index: 2;
     min-width: 60vw !important;
     max-width: 80vw !important;
     max-height: 50vh !important;
@@ -235,13 +235,14 @@ div[data-role='popup'] {
     -moz-transform: translate(-50%,-50%) !important;
     -ms-transform: translate(-50%,-50%) !important;
     -o-transform: translate(-50%,-50%) !important;
-    transform: translate(-50%,-50%) !important;*/
-}
-
-/*#myActivity-add div[data-role='popup'],
-#myActivity-edit div[data-role='popup'] {
-    min-height: 50vw !important;
+    transform: translate(-50%,-50%) !important;
 }*/
+
+#myActivity-add #accCodePopup,
+#myActivity-edit #accCodePopup {
+    min-height: 100vh !important;
+    min-width: 100vw !important;
+}
 
 ::-webkit-scrollbar {
     width: 0 !important;

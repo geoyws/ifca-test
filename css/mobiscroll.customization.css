@@ -1,0 +1,103 @@
+﻿/* Original from mobiscroll.widget.css */
+.dwo {
+    z-index: 1;
+    background: #fff;
+    background: rgba(255,255,255,.7);
+    filter: Alpha(Opacity=70);
+}
+
+/* Original from mobiscroll.widget.wp.css */
+.mbsc-wp .dwwr {
+    padding: 40px 30px 30px 30px;
+    border-radius: 20px;
+}
+
+.mbsc-wp .dwb {
+    padding: 10px 100px;
+    text-transform: capitalize;
+}
+
+.mbsc-wp .dwb:before {
+    border: 0;
+}
+
+.mbsc-wp .dwb-a:before {
+    background: #fff;
+    color: #008edc;
+}
+
+.mbsc-wp .dwb-a:before {
+    background: #fff;
+    color: #008edc;
+}
+
+/* Light version */
+.mbsc-wp-light .dwwr {
+    background: #445161;
+    color: #000;
+}
+.mbsc-wp-light .dwb {
+    color: #ffffff;
+}
+.mbsc-wp-light .dwb:before {
+    border: 0;
+    color: #000;
+}
+
+.mbsc-wp-light .dwb-a:before {
+    background: none;
+    color: #dedede;
+}
+
+/* Original from mobiscroll.scroller.wp.css */
+a.dwb.dwb1.dwb-e.mbsc-ic.mbsc-ic-close {
+    padding: 10px;
+}
+
+.mbsc-wp-light .dw-ul .dw-hl .dw-i {
+    color: #008edc;
+    background: #fff;
+}
+
+.mbsc-wp .dwwl {
+    padding: 15px 2px;
+}
+
+.mbsc-wp .dw-i {
+    border: 2px solid #4c4c4c;
+}
+
+/* Light version */
+.mbsc-wp-light .dw-li {
+    color: #f1f1f1;
+}
+.mbsc-wp-light .dw-i {
+    border-color: #f1f1f1;
+}
+.mbsc-wp-light .dw-day, 
+.mbsc-wp-light .dw-mon {
+    color: #f1f1f1;
+}
+
+.mbsc-wp-light .mbsc-wp-none .dw-sel .dw-i, 
+.mbsc-wp-light .mbsc-wp-none .dw-hl .dw-i {
+    color: #008edc;
+}
+
+/* Others */
+.mbsc-wp-light .dw-sel .dw-i, .mbsc-wp-light .dw-ul .dw-hl .dw-i {
+    background: #fff;
+}
+
+div.dwbw.dwb-c {
+    position: absolute;
+    top: 5px;
+    right: -90px;
+}
+
+div.dwbw.dwb-s-text {
+    background:  linear-gradient(#4aa12c, #348816);
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+}
